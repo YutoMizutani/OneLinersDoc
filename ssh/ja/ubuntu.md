@@ -2,26 +2,25 @@
 
 # Ubuntu 向け SSH 設定
 
-## 1. Install required packages
+## 1. 必要なパッケージのインストール
 
-Install [ssh](https://packages.ubuntu.com/disco/ssh) (sshd), [qrencode](https://github.com/fukuchi/libqrencode) (2D code generator) and [fbi](https://github.com/kraxel/fbida) (Displaying image tool). Enter below on your terminal.
+[ssh](https://packages.ubuntu.com/disco/ssh) (sshd)，[qrencode](https://github.com/fukuchi/libqrencode) (2次元コード生成ツール) と [fbi](https://github.com/kraxel/fbida) (画像表示ツール) をインストールします。下記のコマンドをターミナルに入力してください。
 
 ```sh
 sudo apt update && sudo apt install -y ssh qrencode fbi
 ```
 
+## 3. SSH を有効にする
 
-## 2. Enable SSH access
-
-Enable SSH connection from other computers. Enter below on your terminal.
+他のコンピュータから SSH 接続ができるよう設定します。下記のコマンドをターミナルに入力してください。
 
 ```sh
 systemctl start sshd
 ```
 
-## 4. Show SSH code
+## 4. SSH コマンドの画像表示
 
-Show SSH command with image. Enter below on your terminal.
+SSH コマンドを画像に出力します。下記のコマンドをターミナルに入力してください。
 
 ```sh
 echo ssh `whoami`@`hostname -I | awk '{print $(NF)}'` | qrencode -s 20 -o out.png && sudo fbi -T 1 -a out.png ; rm -f out.png

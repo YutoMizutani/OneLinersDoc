@@ -19,7 +19,6 @@ Install [qrencode](https://github.com/fukuchi/libqrencode) (2D code generator) a
 brew install qrencode eddieantonio/eddieantonio/imgcat
 ```
 
-
 ## 3. Enable SSH access
 
 Enable SSH connection from other computers. Enter below on your terminal.

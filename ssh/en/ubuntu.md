@@ -10,7 +10,6 @@ Install [ssh](https://packages.ubuntu.com/disco/ssh) (sshd), [qrencode](https://
 sudo apt update && sudo apt install -y ssh qrencode fbi
 ```
 
-
 ## 2. Enable SSH access
 
 Enable SSH connection from other computers. Enter below on your terminal.

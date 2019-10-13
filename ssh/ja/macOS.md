@@ -11,27 +11,26 @@ macOS のパッケージ管理ソフトである [Homebrew](https://brew.sh) を
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)
 ```
 
-## 2. Install required packages
+## 2. 必要なパッケージのインストール
 
-Install [qrencode](https://github.com/fukuchi/libqrencode) (2D code generator) and [imgcat](https://github.com/eddieantonio/imgcat) (Displaying image tool). Enter below on your terminal.
+[qrencode](https://github.com/fukuchi/libqrencode) (2次元コード生成ツール) と [imgcat](https://github.com/eddieantonio/imgcat) (画像表示ツール) をインストールします。下記のコマンドをターミナルに入力してください。
 
 ```sh
 brew install qrencode eddieantonio/eddieantonio/imgcat
 ```
 
+## 3. SSH を有効にする
 
-## 3. Enable SSH access
-
-Enable SSH connection from other computers. Enter below on your terminal.
-Or settings up [on System Preferences](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac).
+他のコンピュータから SSH 接続ができるよう設定します。下記のコマンドをターミナルに入力してください。
+[システム環境設定](https://support.apple.com/guide/mac-help/allow-a-remote-computer-to-access-your-mac-mchlp1066/mac) を利用して設定することもできます。
 
 ```sh
 sudo systemsetup -setremotelogin on
 ```
 
-## 4. Show SSH code
+## 4. SSH コマンドの画像表示
 
-Show SSH command with image. Enter below on your terminal.
+SSH コマンドを画像に出力します。下記のコマンドをターミナルに入力してください。
 
 ```sh
 echo ssh `id -un`@`ifconfig | grep "inet " | grep -Fv 127.0.0.1 | awk '{print $2}'` | qrencode -s 20 -o out.png && imgcat out.png ; rm -f out.png
